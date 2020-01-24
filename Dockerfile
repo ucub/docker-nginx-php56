@@ -11,6 +11,7 @@ RUN yum -y install php php-mcrypt php-cli php-gd php-curl php-mysql \
                   php-bcmath php-xmlrpc php-pdo php-mbstring php-pear \
                   php-process php-intl php-xml php-opcache; yum clean all
 RUN yum clean all
+ADD php.ini /etc/
 COPY ./nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["/usr/sbin/nginx","-g","daemon off;"]
